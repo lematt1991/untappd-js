@@ -82,6 +82,16 @@ class Untappd{
 		});
 	}
 
+	/**
+	 * Explicitly set the access token.  This method is useful if
+	 * you have more than one access token and want to use a different
+	 * token than the one specified in the constructor
+	 * @param {String} token - Access token
+	 */
+	setAccessToken(token){
+		this.accessToken = token;
+	}
+
 	/* -------------------- FEEDS ---------------------- */
 	
 	// https://untappd.com/api/docs#activityfeed
