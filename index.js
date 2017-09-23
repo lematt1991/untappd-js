@@ -60,7 +60,7 @@ class Untappd{
 	 * @return { Promise } - Promise containing data or exception
 	 */
 	post(path, params, data, callback){
-		return req("POST",path,params,data,callback);
+		return this.req("POST",path,params,data,callback);
 	}
 
 	/**
@@ -71,7 +71,7 @@ class Untappd{
 	 * @return { Promise } - Promise containing data or exception
 	 */
 	get(path, params, callback){
-		return req("GET",path,params,null,callback);
+		return this.req("GET",path,params,null,callback);
 	}
 
 	validate(object, fields, path){
