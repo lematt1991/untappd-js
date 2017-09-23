@@ -284,20 +284,4 @@ class Untappd{
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+module.exports = Untappd;
