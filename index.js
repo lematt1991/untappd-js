@@ -97,47 +97,47 @@ class Untappd{
 	// https://untappd.com/api/docs#activityfeed
 	activityFeed(data, callback) {
 		data = data || {};
-		return get("/v4/checkin/recent", data, callback);
+		return this.get("/v4/checkin/recent", data, callback);
 	}
 
 	// https://untappd.com/api/docs#useractivityfeed
 	userActivityFeed(data, callback) {
 		data = data || {};
 		this.validate(data, ['USERNAME']);
-		return get(`/v4/user/checkins/${data.USERNAME}`, data, callback);
+		return this.get(`/v4/user/checkins/${data.USERNAME}`, data, callback);
 	}
 
 	// https://untappd.com/api/docs#theppublocal
 	pubFeed(data, callback) {
 		data = data || {};
-		return get("/v4/thepub/local", data, callback);
+		return this.get("/v4/thepub/local", data, callback);
 	}
 
 	// https://untappd.com/api/docs#venueactivityfeed
 	venueActivityFeed(data, callback) {
 		data = data || {};
 		this.validate(data, ["VENUE_ID"])
-		return get(`/v4/venue/checkins/${data.VENUE_ID}`, data, callback);
+		return this.get(`/v4/venue/checkins/${data.VENUE_ID}`, data, callback);
 	}
 
 	// https://untappd.com/api/docs#beeractivityfeed
 	beerActivityFeed(data, callback) {
 		data = data || {}
 		this.validate(data, ['BID']);
-		return get(`/v4/beer/checkins/${data.BID}`, data, callback);
+		return this.get(`/v4/beer/checkins/${data.BID}`, data, callback);
 	}
 
 	// https://untappd.com/api/docs#breweryactivityfeed
 	breweryActivityFeed(data, callback) {
 		data = data || {};
 		this.validate(data, ['BREWERY_ID']);
-		return get(`/v4/brewery/checkins/${data.BREWERY_ID}`, data, callback);
+		return this.get(`/v4/brewery/checkins/${data.BREWERY_ID}`, data, callback);
 	}
 
 	// https://untappd.com/api/docs#notifications
 	notifications(data, callback) {
 		data = data || {};
-		return get("/v4/notifications", data, callback);
+		return this.get("/v4/notifications", data, callback);
 	}
 
 	/* --------------------- The INFO / SEARCH ------------------------- */
@@ -145,66 +145,66 @@ class Untappd{
 	// https://untappd.com/api/docs#userinfo
 	userInfo(data, callback) {
 		data = data || {};
-		return get(`/v4/user/info/${(data.USERNAME || '')}`, data, callback);
+		return this.get(`/v4/user/info/${(data.USERNAME || '')}`, data, callback);
 	}
 
 	// https://untappd.com/api/docs#userwishlist
 	userWishList(data, callback) {
 		data = data || {};
-		return get(`/v4/user/wishlist/${(data.USERNAME || '')}`, data, callback);
+		return this.get(`/v4/user/wishlist/${(data.USERNAME || '')}`, data, callback);
 	}
 
 	// https://untappd.com/api/docs#userfriends
 	userFriends(data, callback) {
 		data = data || {};
-		return get(`/v4/user/friends/${data.USERNAME || ''})`, data, callback);
+		return this.get(`/v4/user/friends/${data.USERNAME || ''})`, data, callback);
 	}
 
 	// https://untappd.com/api/docs#userbadges
 	userBadges(data, callback) {
 		data = data || {};
-		return get(`/v4/user/badges/${data.USERNAME || ''})`, data, callback);
+		return this.get(`/v4/user/badges/${data.USERNAME || ''})`, data, callback);
 	}
 
 	// https://untappd.com/api/docs#userbeers
 	userDistinctBeers(data, callback) {
 		data = data || {};
-		return get(`/v4/user/beers/${data.USERNAME || ''})`, data, callback);
+		return this.get(`/v4/user/beers/${data.USERNAME || ''})`, data, callback);
 	}
 
 	// https://untappd.com/api/docs#breweryinfo
 	breweryInfo(data, callback) {
 		data = data || {};
 		this.validate(data, ['BREWERY_ID']);
-		return get(`/v4/brewery/info/${data.BREWERY_ID}`, data, callback);
+		return this.get(`/v4/brewery/info/${data.BREWERY_ID}`, data, callback);
 	}
 
 	// https://untappd.com/api/docs#beerinfo
 	beerInfo(data, callback) {
 		data = data || {};
 		this.validate(data, ['BID']);
-		return get(`/v4/beer/info/${data.BID}`, data, callback);
+		return this.get(`/v4/beer/info/${data.BID}`, data, callback);
 	}
 
 	// https://untappd.com/api/docs#venueinfo
 	venueInfo(data, callback) {
 		data = data || {};
 		this.validate(data, ['VENUE_ID']);
-		return get(`/v4/venue/info/${data.VENUE_ID}`, data, callback);
+		return this.get(`/v4/venue/info/${data.VENUE_ID}`, data, callback);
 	}
 
 	// https://untappd.com/api/docs#beersearch
 	beerSearch(data, callback) {
 		data = data || {};
 		this.validate(data, ['q']);
-		return get("/v4/search/beer", data, callback);
+		return this.get("/v4/search/beer", data, callback);
 	}
 
 	// https://untappd.com/api/docs#brewerysearch
 	brewerySearch(data, callback) {
 		data = data || {};
 		this.validate(data, ['q']);
-		return get("/v4/search/brewery", data, callback);
+		return this.get("/v4/search/brewery", data, callback);
 	}
 
 	/* ---------------------- Actions -------------------------- */
@@ -213,7 +213,7 @@ class Untappd{
 	checkin(data, callback) {
 		data = data || {};
 		this.validate(data, ['gmt_offset', 'timezone', 'bid']);
-		return post("/v4/checkin/add", {} , data, callback);
+		return this.post("/v4/checkin/add", {} , data, callback);
 	}
 
 	// https://untappd.com/api/docs#toast
@@ -221,76 +221,76 @@ class Untappd{
 	toast(data, callback) {
 		data = data || {};
 		this.validate(data, ['CHECKIN_ID']);
-		return get(`/v4/checkin/toast/${data.CHECKIN_ID}`, data, callback);
+		return this.get(`/v4/checkin/toast/${data.CHECKIN_ID}`, data, callback);
 	}
 
 	// https://untappd.com/api/docs#pendingfriends
 	pendingFriends(data, callback) {
 		data = data || {};
-		return get("/v4/user/pending", data, callback);
+		return this.get("/v4/user/pending", data, callback);
 	}
 
 	// https://untappd.com/api/docs#addfriend
 	requestFriends(data, callback) {
 		data = data || {};
 		this.validate(data, ['TARGET_ID']);
-		return get(`/v4/friend/request/${data.TARGET_ID}`, data, callback);
+		return this.get(`/v4/friend/request/${data.TARGET_ID}`, data, callback);
 	}
 
 	// https://untappd.com/api/docs#removefriend
 	removeFriends(data, callback) {
 		data = data || {};
 		this.validate(data, ['TARGET_ID']);
-		return get(`/v4/friend/remove/${data.TARGET_ID}`, data, callback);
+		return this.get(`/v4/friend/remove/${data.TARGET_ID}`, data, callback);
 	}
 
 	// https://untappd.com/api/docs#acceptfriend
 	acceptFriends(data, callback) {
 		data = data || {};
 		this.validate(data, ['TARGET_ID']);
-		return post(`/v4/friend/accept/${data.TARGET_ID}`, {}, data, callback);
+		return this.post(`/v4/friend/accept/${data.TARGET_ID}`, {}, data, callback);
 	}
 
 	// https://untappd.com/api/docs#rejectfriend
 	rejectFriends(data, callback) {
 		data = data || {};
 		this.validate(data, ['TARGET_ID']);
-		return post(`/v4/friend/reject/${data.TARGET_ID}`, {}, data, callback);
+		return this.post(`/v4/friend/reject/${data.TARGET_ID}`, {}, data, callback);
 	}
 
 	// https://untappd.com/api/docs#addcomment
 	addComment(data, callback) {
 		data = data || {};
 		this.validate(data, ['CHECKIN_ID', 'shout']);
-		return post(`/v4/checkin/addcomment/${data.CHECKIN_ID}`, {}, data, callback);
+		return this.post(`/v4/checkin/addcomment/${data.CHECKIN_ID}`, {}, data, callback);
 	}
 
 	// https://untappd.com/api/docs#removecommment
 	removeComment(data, callback) {
 		data = data || {};
 		this.validate(data, ['COMMENT_ID']);
-		return post(`/v4/checkin/deletecomment/${data.COMMENT_ID}`, {}, data, callback);
+		return this.post(`/v4/checkin/deletecomment/${data.COMMENT_ID}`, {}, data, callback);
 	}
 
 	// https://untappd.com/api/docs#addwish
 	addToWishList(data, callback) {
 		data = data || {};
 		this.validate(data, ['bid']);
-		return get("/v4/user/wishlist/add", data, callback);
+		return this.get("/v4/user/wishlist/add", data, callback);
 	}
 
 	// https://untappd.com/api/docs#removewish
 	removeFromWishList(data, callback) {
 		data = data || {};
 		this.validate(data, ['bid']);
-		return get("/v4/user/wishlist/remove", data, callback);
+		return this.get("/v4/user/wishlist/remove", data, callback);
 	}
 
 	// https://untappd.com/api/docs#foursquarelookup
 	foursquareVenueLookup(callback, data) {
 		data = data || {};
 		this.validate(data, ['VENUE_ID']);
-		return get(`/v4/venue/foursquare_lookup/${data.VENUE_ID}`, data, callback);
+		return this.get(`/v4/venue/foursquare_lookup/${data.VENUE_ID}`, data, callback);
 	}
 }
 
