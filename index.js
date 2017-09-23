@@ -92,6 +92,14 @@ class Untappd{
 		this.accessToken = token;
 	}
 
+	/**
+	 * Return the current access token
+	 * @return {String} - Access token
+	 */
+	getAccessToken(){
+		return this.accessToken;
+	}
+
 	/* -------------------- FEEDS ---------------------- */
 	
 	// https://untappd.com/api/docs#activityfeed
@@ -182,7 +190,7 @@ class Untappd{
 	// https://untappd.com/api/docs#beerinfo
 	beerInfo(data, callback) {
 		data = data || {};
-		this.validate(data, ['BID']);
+		this.validate(data, ['BID'], '/v4/beer/info');
 		return this.get(`/v4/beer/info/${data.BID}`, data, callback);
 	}
 
