@@ -295,7 +295,7 @@ class Untappd{
 	}
 
 	// https://untappd.com/api/docs#foursquarelookup
-	foursquareVenueLookup(callback, data) {
+	foursquareVenueLookup(data, callback) {
 		data = data || {};
 		this.validate(data, ['VENUE_ID']);
 		return this.get(`/v4/venue/foursquare_lookup/${data.VENUE_ID}`, data, callback);
