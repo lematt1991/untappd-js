@@ -28,8 +28,12 @@ class Untappd{
 				delete params[k];
 		});
 
-		params.access_token = this.accessToken;
-
+		if(this.accessToken){
+			params.access_token = this.accessToken;
+		}else{
+			params.client_id = this.clientId;
+			params.client_secret = this.clientSecret;
+		}
 		return axios.request({
 			url : path,
 			method,
@@ -90,6 +94,14 @@ class Untappd{
 	 */
 	setAccessToken(token){
 		this.accessToken = token;
+	}
+
+	setClientId(clientId){
+		this.clientId = clientId;
+	}
+
+	setClientSecret(clientSecret){
+		this.clientSecret = clientSecret;
 	}
 
 	/**
