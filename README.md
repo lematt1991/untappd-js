@@ -20,6 +20,7 @@ API
 All methods are of the form `method(data, [callback])`.  If the callback is not supplied, then the method returns a promise.
 
 ### Feeds
+- `activityFeed`: [`/v4/checkin/recent`](https://untappd.com/api/docs#activityfeed)
 - `userActivityFeed`: [`/v4/user/checkins/[USERNAME]`](https://untappd.com/api/docs#useractivityfeed)
 - `pubFeed`: [`/v4/thepub/local`](https://untappd.com/api/docs#theppublocal)
 - `venueActivityFeed`: [`/v4/venue/checkins/[VENUE_ID]`](https://untappd.com/api/docs#venueactivityfeed)
